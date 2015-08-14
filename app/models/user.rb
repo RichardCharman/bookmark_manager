@@ -21,10 +21,10 @@ class User
   # and save it in the database. This digest, provided by bcrypt,
   # has both the password hash and the salt. We save it to the
   # database instead of the plain password for security reasons.
+  validates_confirmation_of :password
+  
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
-
-  validates_confirmation_of :password
 end
