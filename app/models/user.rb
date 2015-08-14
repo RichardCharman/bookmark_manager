@@ -1,5 +1,5 @@
 # bcrypt will generate the password hash
-require 'bcrypt' # make sure 'bcrypt' is in your Gemfile
+require 'bcrypt' 
 
 class User
   attr_reader :password
@@ -8,7 +8,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String, required: true
+  property :email, String, required: true, unique: true
   # this will store both the password and the salt
   # It's Text and not String because String holds
   # 50 characters by default
